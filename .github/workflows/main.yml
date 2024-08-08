@@ -1,0 +1,37 @@
+name: Build and Deploy .NET App
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+
+      - name: checkout code
+        uses: actions/checkout@v4.1.7
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4.0.1
+        with:
+          dotnet-version: '8.x'
+
+      - name: Build code
+        run: dotnet build --configuration Release
+
+      - name: Publish code
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}\myapp
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4.3.6
+        with:
+          # Artifact name
+          name: .net-app
+          path: ${{env.DOTNET_ROOT}}/myapp
+
+          
+        
