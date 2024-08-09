@@ -35,6 +35,7 @@ jobs:
 
   deploy:
     runs-on: windows-latest
+    needs: build
     env:
       package-name: .net-app
       app-name: empty
