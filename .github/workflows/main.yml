@@ -38,7 +38,7 @@ jobs:
     needs: build
     env:
       package-name: .net-app
-      app-name: empty
+      app-name: azureapp1
       deployment-slot: production
       
     steps:
@@ -46,8 +46,11 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4.1.8
         with:
-          name: .net-app
+          name: ${{ env.package-name }}
 
+      - name: Print name of App Service to deploy to
+        run: echo "App will be deployed to ${{ env.app-name }}"
+      
       - name: List files in root directory
         run: |
           Get-ChildItem -Path . | ForEach-Object { Write-Output $_.Name }
