@@ -38,4 +38,5 @@ jobs:
       package-name: .net-app
       app-name: appsvc1
       deployment-slot: development
-    secrets: inherit
+    secrets: 
+      someSecret: ${{ secrets.MY_SECRET }}
