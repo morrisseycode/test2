@@ -6,13 +6,14 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  package-name: .net-app
+  app-name: AZURE-APP-SVC-NAME
+  deployment-slot: development
+      
 jobs:
   build-job:
     runs-on: windows-latest
-    env:
-      package-name: .net-app
-      app-name: AZURE-APP-SVC-NAME
-      deployment-slot: development
       
     steps:
 
