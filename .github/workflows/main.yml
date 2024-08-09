@@ -48,6 +48,9 @@ jobs:
         with:
           name: ${{ env.package-name }}
 
+      - name: Secret Information
+        run: echo "Value of secret matches - ${{ secrets.MY_SECRET == 'Some Value' }}"
+        
       - name: Print name of App Service to deploy to
         run: echo "App will be deployed to ${{ env.app-name }}"
       
