@@ -5,7 +5,7 @@ on:
 
 jobs:
   build-job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
 
