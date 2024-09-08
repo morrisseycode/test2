@@ -55,4 +55,4 @@ jobs:
           app-name: ${{ env.app-name }}
           slot-name: ${{ env.deployment-slot }}
           package: .
-          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILES }}
