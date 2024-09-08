@@ -38,7 +38,7 @@ jobs:
     needs: build-job
     env:
       package-name: .net-app
-      app-name: azureapp1
+      app-name: sampleappgh
       deployment-slot: production
       
     steps:
